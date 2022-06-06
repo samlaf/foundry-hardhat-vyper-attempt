@@ -9,6 +9,8 @@ import "uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router01.sol";
 import "uniswap/v2-periphery/contracts/interfaces/IERC20.sol";
 import "uniswap/v2-periphery/contracts/interfaces/IWETH.sol";
 
+import "pandora-protocol/contracts/interfaces/core/IHoldingManager.sol";
+
 // TODO (we assume for now that collateral is USDC. We can generalize later)
 // 1. flashswap some USDC (potentially from WETH/USDC pool)
 // 2. deposit the USDC into a holding
@@ -18,7 +20,7 @@ import "uniswap/v2-periphery/contracts/interfaces/IWETH.sol";
 
 contract Liquidator is IUniswapV2Callee {
     address immutable univ2_factory;
-    address immutable holding_manager;
+    IHoldingManager immutable holding_manager;
     IERC20 immutable USDC;
 
     constructor(
@@ -27,8 +29,9 @@ contract Liquidator is IUniswapV2Callee {
         address _USDC
     ) public {
         univ2_factory = _univ2_factory;
-        holding_manager = _holding_manager;
+        holding_manager = IHoldingManager(_holding_manager);
         USDC = _USDC;
+        holding_manager.createHoldingForMyself();
     }
 
     // gets tokens/WETH via a V2 flash swap, swaps for the ETH/tokens on V1, repays V2, and keeps the rest!
