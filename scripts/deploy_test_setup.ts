@@ -1,9 +1,9 @@
 import { SignerWithAddress } from "@nomiclabs/hardhat-ethers/signers";
 import { ethers } from "hardhat";
 import { IERC20 } from "../typechain";
-const { deploy_basic_contracts } = require("../lib/pandora-protocol/test/utils/basic_contracts");
-const impersonateAccount = require("../lib/pandora-protocol/test/utils/impersonate_account");
-const { EMPTY_BYTES } = require("../lib/pandora-protocol/constants");
+const { deploy_basic_contracts } = require("../lib/pandora_protocol/test/utils/basic_contracts");
+const impersonateAccount = require("../lib/pandora_protocol/test/utils/impersonate_account");
+const { EMPTY_BYTES } = require("../lib/pandora_protocol/constants");
 const { writeAddresses } = require("./utils");
 // Also deploy a strategy??
 

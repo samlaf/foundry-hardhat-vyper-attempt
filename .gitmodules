@@ -7,8 +7,8 @@
 [submodule "lib/v2-periphery"]
 	path = lib/v2-periphery
 	url = https://github.com/Uniswap/v2-periphery
-[submodule "lib/pandora-protocol"]
-	path = lib/pandora-protocol
+[submodule "lib/pandora_protocol"]
+	path = lib/pandora_protocol
 	url = https://github.com/advancedblockchain/pandora-protocol
 [submodule "lib/openzeppelin-contracts"]
 	path = lib/openzeppelin-contracts

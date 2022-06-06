@@ -1,0 +1,29 @@
+{
+  "_format": "hh-vy-cache-1",
+  "files": {
+    "/Users/deckysetiawan/devel/abag/pandora-liq-bot/src/VyperImporter.vy": {
+      "lastModificationDate": 1654543365450,
+      "contentHash": "036a01448a6ce2c48f864bab29f889f2",
+      "sourceName": "src/VyperImporter.vy",
+      "vyperConfig": {
+        "version": "0.2.16"
+      },
+      "versionPragma": "^0.2.0",
+      "artifacts": [
+        "VyperImporter"
+      ]
+    },
+    "/Users/deckysetiawan/devel/abag/pandora-liq-bot/src/test.vy": {
+      "lastModificationDate": 1654541445177,
+      "contentHash": "ce363c31dc0efbc001d2989d91035b07",
+      "sourceName": "src/test.vy",
+      "vyperConfig": {
+        "version": "0.2.16"
+      },
+      "versionPragma": "^0.2.0",
+      "artifacts": [
+        "test"
+      ]
+    }
+  }
+}

@@ -9,7 +9,7 @@ import "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router01.sol";
 import "@uniswap/v2-periphery/contracts/interfaces/IERC20.sol";
 import "@uniswap/v2-periphery/contracts/interfaces/IWETH.sol";
 
-import "pandora-protocol/contracts/interfaces/core/IHoldingManager.sol";
+import "pandora_protocol/contracts/interfaces/core/IHoldingManager.sol";
 
 // TODO (we assume for now that collateral is USDC. We can generalize later)
 // 1. flashswap some USDC (potentially from WETH/USDC pool)
