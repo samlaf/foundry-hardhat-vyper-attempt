@@ -10,8 +10,8 @@ contract ContractTest is Test {
     Liquidator private liquidator;
 
         address private UNIV2_FACTORY = 0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f;
-        address private HOLDING_MANAGER = 
-        address _USDC
+        address private HOLDING_MANAGER = 0x0;
+        // address _USDC
     function setUp() public {
         liquidator = new Liquidator();
     }

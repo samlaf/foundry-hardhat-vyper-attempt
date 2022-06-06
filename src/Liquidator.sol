@@ -1,13 +1,13 @@
 pragma solidity =0.6.6;
 
-import "uniswap/v2-core/contracts/interfaces/IUniswapV2Callee.sol";
+import "@uniswap/v2-core/contracts/interfaces/IUniswapV2Callee.sol";
 
-import "uniswap/v2-periphery/contracts/libraries/UniswapV2Library.sol";
-import "uniswap/v2-periphery/contracts/interfaces/V1/IUniswapV1Factory.sol";
-import "uniswap/v2-periphery/contracts/interfaces/V1/IUniswapV1Exchange.sol";
-import "uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router01.sol";
-import "uniswap/v2-periphery/contracts/interfaces/IERC20.sol";
-import "uniswap/v2-periphery/contracts/interfaces/IWETH.sol";
+import "@uniswap/v2-periphery/contracts/libraries/UniswapV2Library.sol";
+import "@uniswap/v2-periphery/contracts/interfaces/V1/IUniswapV1Factory.sol";
+import "@uniswap/v2-periphery/contracts/interfaces/V1/IUniswapV1Exchange.sol";
+import "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router01.sol";
+import "@uniswap/v2-periphery/contracts/interfaces/IERC20.sol";
+import "@uniswap/v2-periphery/contracts/interfaces/IWETH.sol";
 
 import "pandora-protocol/contracts/interfaces/core/IHoldingManager.sol";
 
@@ -19,9 +19,9 @@ import "pandora-protocol/contracts/interfaces/core/IHoldingManager.sol";
 // 5. repay the USDC to the univ2 pool
 
 contract Liquidator is IUniswapV2Callee {
-    address immutable univ2_factory;
-    IHoldingManager immutable holding_manager;
-    IERC20 immutable USDC;
+    address private univ2_factory;
+    IHoldingManager private holding_manager;
+    IERC20 private USDC;
 
     constructor(
         address _univ2_factory,
@@ -30,7 +30,7 @@ contract Liquidator is IUniswapV2Callee {
     ) public {
         univ2_factory = _univ2_factory;
         holding_manager = IHoldingManager(_holding_manager);
-        USDC = _USDC;
+        USDC = IERC20(_USDC);
         holding_manager.createHoldingForMyself();
     }
 
@@ -55,8 +55,8 @@ contract Liquidator is IUniswapV2Callee {
             assert(amount0 == 0 || amount1 == 0); // this strategy is unidirectional
             path[0] = amount0 == 0 ? token0 : token1;
             path[1] = amount0 == 0 ? token1 : token0;
-            amountToken = token0 == address(WETH) ? amount1 : amount0;
-            amountETH = token0 == address(WETH) ? amount0 : amount1;
+            // amountToken = token0 == address(WETH) ? amount1 : amount0;
+            // amountETH = token0 == address(WETH) ? amount0 : amount1;
         }
     }
 }
